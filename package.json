@@ -1,0 +1,44 @@
+{
+  "name": "fridge-rescue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test",
+    "check:supabase": "node scripts/check-supabase.mjs",
+    "test:auth": "playwright test --config playwright.auth.config.ts",
+    "test:rls": "node --test scripts/rls/checks.test.mjs",
+    "test:rls:live": "node scripts/test-rls-live.mjs",
+    "test:gemini": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-gemini.ts",
+    "test:ai": "node --experimental-test-module-mocks --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/ai-endpoint.test.mjs scripts/ai-signing.test.mjs",
+    "test:developer": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/browser-api-diagnostics.test.mjs",
+    "test:themealdb": "node --experimental-test-module-mocks --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/themealdb.test.mjs",
+    "test:rate-limit": "node --experimental-test-module-mocks --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/ai-rate-limit.test.mjs",
+    "test:app-url": "node --experimental-test-module-mocks --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/app-url.test.mjs",
+    "test:rate-limit:live": "node --experimental-test-module-mocks --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/test-rate-limit-live.mjs"
+  },
+  "dependencies": {
+    "@google/genai": "^2.24.0",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.116.0",
+    "@upstash/ratelimit": "^2.2.0",
+    "@upstash/redis": "^1.39.0",
+    "next": "^16.3.5",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
